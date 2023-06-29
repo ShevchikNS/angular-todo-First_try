@@ -1,0 +1,14 @@
+<ul class="ml-[25%] w-[50%] mt-5">
+  <li *ngFor="let todo of todosService.todos; let i = index" class="flex justify-between border-2 rounded pt-2 px-2">
+    <span [class.done]="todo.completed">
+      <input type="checkbox" [checked]="todo.completed" class="mr-2" (change)="onChange(todo.id)">
+      <strong>{{i + 1}}</strong>
+      {{todo.title}}
+    </span>
+    <small>{{todo.date | date: 'medium'}}</small>
+
+    <button class="items-center">
+      <mat-icon class="items-center">delete</mat-icon>
+    </button>
+  </li>
+</ul>
